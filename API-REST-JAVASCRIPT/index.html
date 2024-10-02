@@ -1,11 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peliculas</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peliculas</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="m-auto">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid mt-3">
+          <a class="navbar-brand" href="#"
+            ><img src="./imagenes/cuevana3-logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse ms-5"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="nav-link nav-link--item text-white fs-5 fw-bold"
+                  >Inicio</a
+                >
+              </li>
+
+              <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Géneros
+                  </a>
+                  <ul class="dropdown-menu submenu submenu-genero">
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Accion</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Aventura</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Ciencia Ficción</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Crimen</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Drama</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Fantasia</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Música</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Terror</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Animación</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Biografico</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Comedia</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Documental</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Familiar</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Misterio</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">Romance</a>
+                    </li>
+                    <li class="col-6">
+                      <a class="dropdown-item text-white" href="#">thriller</a>
+                    </li>
+                  </ul>
+                </li>
+                
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Peliculas
+                </a>
+                <ul class="dropdown-menu submenu">
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Estrenos</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Peliculas</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Dias</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Semana</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Mes</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  series
+                </a>
+                <ul class="dropdown-menu submenu">
+                  <li>
+                    <a class="dropdown-item text-white" href="#">En Emisión</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">FInalizado</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Dias</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Semana</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Mas Vistas Mes</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

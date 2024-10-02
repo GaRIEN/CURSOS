@@ -1,0 +1,35 @@
+body {
+  background-color: #080f28 !important;
+}
+header {
+  max-width: 1240px;
+  width: 90%;
+}
+.nav-link--item {
+  transition: color 0.5s ease !important;
+}
+
+.nav-link--item:hover {
+  color: #007aff !important;
+}
+
+.dropdown-toggle::after {
+  color: #007aff !important;
+}
+.submenu {
+  background-color: #1e2747 !important;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+}
+.dropdown-item {
+  padding: 13px 50px 13px 20px !important;
+}
+
+.nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: #080f28 !important;
+  color: #007aff !important;
+  transition: color 0.8s ease !important;
+}
