@@ -13,7 +13,9 @@
     />
   </head>
   <body>
-    <header class="m-auto">
+    <header
+      class="m-auto position-absolute top-0 start-50 translate-middle-x z-3"
+    >
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid mt-3">
           <a class="navbar-brand" href="#"
@@ -45,68 +47,91 @@
               </li>
 
               <li class="nav-item dropdown">
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Géneros
-                  </a>
-                  <ul class="dropdown-menu submenu submenu-genero">
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Accion</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Aventura</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Ciencia Ficción</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Crimen</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Drama</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Fantasia</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Música</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Terror</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Animación</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Biografico</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Comedia</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Documental</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Familiar</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Misterio</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">Romance</a>
-                    </li>
-                    <li class="col-6">
-                      <a class="dropdown-item text-white" href="#">thriller</a>
-                    </li>
-                  </ul>
-                </li>
-                
+                <a
+                  class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Géneros
+                </a>
+                <ul class="dropdown-menu submenu submenu-genero">
+                  <div class="row">
+                    <div class="col-6">
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Accion</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Aventura</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Ciencia Ficción</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Crimen</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Drama</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Fantasia</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Música</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Terror</a>
+                      </li>
+                    </div>
+                    <div class="col-6">
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Animación</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Biografico</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Comedia</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Documental</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Familiar</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Misterio</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#">Romance</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item text-white" href="#"
+                          >Thriller</a
+                        >
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link--item nav-link dropdown-toggle text-white fs-5 fw-normal"
@@ -191,6 +216,56 @@
         </div>
       </nav>
     </header>
+    <main>
+      <section class="section-slider">
+        <div class="container-fluid p-0">
+          <div id="carouselExampleCaptions" class="carousel slide">
+
+            <div class="carousel-inner">
+              <div class="carousel-item active ">
+                <img
+                  src="./imagenes/image.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="position-absolute top-50 start-50  translate-middle z-2 container-info">
+                  <a><p class="pelicula-title fw-bold text-light d-inline">Creed II</p> <span class="bg-warning fw-bolder p-1 rounded ">pelicula</span></a>
+                  <div class="container-informacion">
+                    <p class="fs-5">2023</p>
+                    <p class="fs-5">Después de dominar el mundo del boxeo, Adonis Creed ha prosperado tanto en su carrera como en su vida familiar. Cuando un amigo de la infancia y ex prodigio de boxeo, Damien Anderson, resurge después de cumplir una larga sentencia en prisión, está ansioso por demostrar que merece su disparo en el ring. El enfrentamiento entre los antiguos amigos es más que una pelea. Para resolver el puntaje, Adonis debe poner su futuro en la línea para luchar contra Damien, un luchador que no tiene nada que perder.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./imagenes/image copy.png" class="d-block w-100" alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>
+                    Some representative placeholder content for the second slide.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-indicators d-flex justify-content-end">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

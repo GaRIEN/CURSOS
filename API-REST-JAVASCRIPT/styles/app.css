@@ -3,7 +3,7 @@ body {
 }
 header {
   max-width: 1240px;
-  width: 90%;
+  width: 80%;
 }
 .nav-link--item {
   transition: color 0.5s ease !important;
@@ -19,6 +19,9 @@ header {
 .submenu {
   background-color: #1e2747 !important;
 }
+.submenu-genero{
+  width: 280px;
+}
 
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
@@ -33,3 +36,32 @@ header {
   color: #007aff !important;
   transition: color 0.8s ease !important;
 }
+
+.section-slider {
+  height: 60vh;
+
+  .carousel-item img {
+    height: 60vh;
+    width: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 1%, black 80%, transparent);
+    mask-image: linear-gradient(to bottom, transparent 1%, black 80%, transparent);
+  }
+  
+  .container-info {
+    width: 80%;
+  }
+  .pelicula-title {
+    font-size: 3.5rem;
+  }
+  .container-info span {
+    position: relative;
+    top:-1rem;
+    font-size: 0.6rem;
+  }
+  .container-informacion p{
+    color:     #8DA0BC;
+  }
+
+}
+
