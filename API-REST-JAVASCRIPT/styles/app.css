@@ -65,3 +65,10 @@ header {
 
 }
 
+.carousel-item {
+  cursor: grab;
+}
+.carousel-item:active {
+  cursor: grabbing;
+}
+
