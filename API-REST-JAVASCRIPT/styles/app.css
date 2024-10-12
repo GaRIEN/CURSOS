@@ -62,13 +62,8 @@ header {
   .container-informacion p{
     color:     #8DA0BC;
   }
+  .ver-pelicula:hover{
+    transform: scale(1.1);
+  }
 
 }
-
-.carousel-item {
-  cursor: grab;
-}
-.carousel-item:active {
-  cursor: grabbing;
-}
-
