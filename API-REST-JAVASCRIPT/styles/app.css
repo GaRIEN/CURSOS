@@ -19,7 +19,7 @@ header {
 .submenu {
   background-color: #1e2747 !important;
 }
-.submenu-genero{
+.submenu-genero {
   width: 280px;
 }
 
@@ -39,31 +39,98 @@ header {
 
 .section-slider {
   height: 60vh;
+}
 
-  .carousel-item img {
-    height: 60vh;
-    width: 100%;
-    object-fit: cover;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 1%, black 80%, transparent);
-    mask-image: linear-gradient(to bottom, transparent 1%, black 80%, transparent);
-  }
+.section-slider .carousel-item img {
+  height: 60vh;
+  width: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 1%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 1%,
+    black 80%,
+    transparent
+  );
+}
+
+.section-slider .container-info {
+  width: 80%;
+}
+
+.section-slider .pelicula-title {
+  font-size: 3.5rem;
+}
+
+.section-slider .container-info span {
+  position: relative;
+  top: -1rem;
+  font-size: 0.6rem;
+}
+
+.section-slider .container-informacion p {
+  color: #8da0bc;
+}
+
+.section-slider .ver-pelicula:hover {
+  transform: scale(1.1);
+}
+
+/* stilos para las series  */
+.section-episodios .contenedor-episodios .episodios-button {
+  font-size: 0.8rem;
+  height: 35px;
+}
+
+.section-episodios .contenedor-episodios .series a {
+  width: 252px;
+  height: 193px;
+}
+.section-episodios .contenedor-episodios .series a:hover .series-informacion h3{
+ color: #007aff !important;
+}
+
+.section-episodios .contenedor-episodios .series a figure img {
+  width: 100%;
+  height: 80%;
   
-  .container-info {
+}
+.section-episodios .contenedor-episodios .series .series-informacion p {
+  color: #8da0bc;
+  font-size: 1rem;
+}
+/* stilos para las series  */
+.section-peliculas .contenedor-peliculas{
+  
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .section-episodios {
     width: 80%;
   }
-  .pelicula-title {
-    font-size: 3.5rem;
-  }
-  .container-info span {
-    position: relative;
-    top:-1rem;
-    font-size: 0.6rem;
-  }
-  .container-informacion p{
-    color:     #8DA0BC;
-  }
-  .ver-pelicula:hover{
-    transform: scale(1.1);
+  .section-episodios .contenedor-episodios{
+    width: 75%;
+    margin-left: 0;
   }
 
+  .section-peliculas .contenedor-peliculas{
+    width: 80%;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
 }
