@@ -111,12 +111,39 @@ margin-bottom: 10px;
   color: #8da0bc;
   font-size: 1rem;
 }
-/* stilos para las series  */
+/* stilos para las peliculas  */
 .section-peliculas .contenedor-peliculas .peliculas{
   width: 75%;
 }
-.section-peliculas .contenedor-peliculas .aside{
- 
+.section-peliculas .contenedor-peliculas .peliculas-subtitle{
+ color: #4F6B95;
+}
+
+.section-peliculas .contenedor-peliculas .show-peliculas .show__peliculas-pelicula{
+  width: 240px;
+  height: 340px;
+}
+.section-peliculas .contenedor-peliculas .show-peliculas .show__peliculas-pelicula:hover {
+  cursor: pointer;
+}
+
+.section-peliculas .contenedor-peliculas .show-peliculas .show__peliculas-pelicula:hover h3{
+  color: #007aff !important;
+}
+
+.show__peliculas-pelicula figure {
+  margin: 0;
+  width: 100%;
+  height: 90%;
+}
+
+.section-peliculas .contenedor-peliculas .show-peliculas .show__peliculas-pelicula img{
+  width: 100%;
+  height: 100%;
+}
+.section-peliculas .contenedor-peliculas .show-peliculas .show__peliculas-pelicula h3{
+  width: 100%;
+  height: 10%;
 }
 
 @media (min-width: 576px) {
@@ -136,6 +163,11 @@ margin-bottom: 10px;
 
   .section-peliculas .contenedor-peliculas{
     width: 80%;
+  }
+  .section-peliculas .contenedor-peliculas .show-peliculas{
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 40px;
+    justify-content: center;
   }
 }
 
