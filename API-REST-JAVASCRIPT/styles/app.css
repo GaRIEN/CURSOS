@@ -86,23 +86,40 @@ header {
   font-size: 0.8rem;
   height: 35px;
 }
+.section-episodios .contenedor-episodios .series  {
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+ 
+}
+#carousel.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+#carousel {
+  user-select: none; 
+}
 
 .section-episodios .contenedor-episodios .series a {
   width: 252px;
   height: 200px;
+  flex: 0 0 auto; 
 }
 .section-episodios .contenedor-episodios .series a:hover .series-informacion h3{
  color: #007aff !important;
 }
 .section-episodios .contenedor-episodios .series a figure  {
 margin-bottom: 10px;
-  
+width: 100%;
+height: 65%;
 }
 
 .section-episodios .contenedor-episodios .series a figure img {
   width: 100%;
-  height: 80%;
-  
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 .section-episodios .contenedor-episodios .series .series-informacion{
   height: 20%;
@@ -160,6 +177,7 @@ margin-bottom: 10px;
     width: 75%;
     margin-left: 0;
   }
+
 
   .section-peliculas .contenedor-peliculas{
     width: 80%;
