@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   getTrendingMoviesPreview();
   getCategoriasMovies();
+  getTopRated()
 });
 
 //solicitud de peliculas que estan en tend son por dias
@@ -70,7 +71,7 @@ async function getTrendingMoviesPreview() {
   });
 }
 
-//solicitud de peliculas que estan en tend son por dias
+//solicitud de categorias de peliculas
 async function getCategoriasMovies() {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" + API_KEY
@@ -104,4 +105,32 @@ const column2Html = `
 `;
 generopeliculas.innerHTML = column1Html +  column2Html;
 
+}
+
+//solicitud de para traer peliculas mas vistas
+async function getTopRated() {
+  const res = await fetch(
+    "https://api.themoviedb.org/3/trending/all/day?language=en-US&api_key=" + API_KEY
+  );
+  // fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+  const data = await res.json();
+  const movies = data.results;
+  console.log('Esta es la ruta que traerá las películas mejor valoradas');
+  console.log(movies);
+
+  
+  const containerpeliculas = document.getElementById("show-peliculas");
+  movies.forEach((movie) => {
+    const moviehtml = `
+              <div class="show__peliculas-pelicula">
+                <figure>
+                  <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" alt="${movie.original_title
+                }">
+                </figure>
+                <h3 class="fs-6 mt-3 text-center text-light">${movie.original_title
+                }</h3>
+              </div> 
+          `;
+    containerpeliculas.insertAdjacentHTML("beforeend", moviehtml);
+  });
 }
