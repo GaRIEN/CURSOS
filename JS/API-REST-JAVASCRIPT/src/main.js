@@ -71,6 +71,14 @@ async function getTrendingMoviesPreview() {
   });
 }
 
+
+//CODIGO PARA HACER CLICK QUITARLE O AÑADIRLO
+// const movieBtn = document.createElement('button' )
+//  movieBtn.classList.add('movie-btn')
+// movieBtn.addEventListener('click', ()=>{
+//   movieBtn.classList.toggle('movie-btn--liked')
+// })
+
 //solicitud de categorias de peliculas
 async function getCategoriasMovies() {
   const res = await fetch(
