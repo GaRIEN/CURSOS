@@ -43,3 +43,35 @@ echo dunero_pi;
     Identidad ⇒ Sirve para convertir un string a un int o float, según sea el caso ⇒ + ⇒ +$a
     Negación ⇒ Convierte un numero positivo a negativo ⇒ -$a
     */
+
+//OPeradores relacionales 
+  /*
+    Son usados en PHP para la comparación entre valores
+  
+    Operador	Descripción
+    ==	Igual a
+    ===	Idéntico a
+    !=	Diferente de
+    <>	Diferente de
+    !==	No idéntico a
+    >	Mayor que
+    >=	Mayor o igual que
+    <	Menor que
+    <=	Menor o igual que
+    <=>	Nave espacial
+    ??	Fusión de null
+
+    */
+
+// otros operadores 
+    /*
+    Operador	Descripción
+    =	Asignación
+    +=	Incremento
+    ++	Incremento
+    -=	Decremento
+    --	Decremento
+    *=	Multiplicación
+    /=	División
+    .=	Concatenación
+        */
