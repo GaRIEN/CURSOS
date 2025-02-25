@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Contador from './componentes/ContadorHook';
+import ScrollHooks from './componentes/Scroll-hooks';
+import RelojosHooks from './componentes/RelojHooks';
 
 function App() {
   return (
@@ -20,6 +22,10 @@ function App() {
         </a>
         <br />  
         <Contador/>
+        <br />  
+        <ScrollHooks/>
+        <br />  
+        <RelojosHooks/>
       </header>
     </div>
   );
