@@ -3,6 +3,7 @@ import './App.css';
 import Contador from './componentes/ContadorHook';
 import ScrollHooks from './componentes/Scroll-hooks';
 import RelojosHooks from './componentes/RelojHooks';
+import AjaxHook from './componentes/AjaxApiHook';
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <ScrollHooks/>
         <br />  
         <RelojosHooks/>
+        <br />  
+        <AjaxHook/>
       </header>
     </div>
   );
