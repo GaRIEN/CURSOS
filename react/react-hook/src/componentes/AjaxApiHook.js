@@ -12,26 +12,25 @@ function Pokemon({ avatar, name }) {
 export default function AjaxHook() {
   const [pokemones, setPokemones] = useState([]);
 
-  useEffect(() => {
-    let url = "https://pokeapi.co/api/v2/pokemon/";
-    fetch(url)
-      .then((data) => data.json())
-      .then((res) => {
-        console.log(res);
-        res.results.forEach((element) => {
-          fetch(element.url)
-            .then((data) => data.json())
-            .then((res) => {
-              console.log("segunda consulta");
-              let pokemon = {
-                id: res.id,
-                name: res.name,
-                avatar: res.sprites.front_default,
-              };
-              setPokemones((pokemones) => [...pokemones, pokemon]);
-            });
-        });
+  useEffect((url) => {
+    const getPokemon = async (url) => {
+      let res = await fetch(url),
+        json = await res.json();
+
+      json.results.forEach(async (element) => {
+        let res = await fetch(element.url),
+          json = await res.json();
+
+        let pokemon = {
+          id: json.id,
+          name: json.name,
+          avatar: json.sprites.front_default,
+        };
+        setPokemones((pokemones) => [...pokemones, pokemon]);
       });
+    };
+
+    getPokemon("https://pokeapi.co/api/v2/pokemon/");
   }, []);
 
   return (
