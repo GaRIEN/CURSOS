@@ -4,6 +4,7 @@ import Contador from './componentes/ContadorHook';
 import ScrollHooks from './componentes/Scroll-hooks';
 import RelojosHooks from './componentes/RelojHooks';
 import AjaxHook from './componentes/AjaxApiHook';
+import HooksPersonalizados from './componentes/HookPersonalizado';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <RelojosHooks/>
         <br />  
         <AjaxHook/>
+        <br />
+        <HooksPersonalizados/>
       </header>
     </div>
   );

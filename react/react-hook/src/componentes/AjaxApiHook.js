@@ -12,12 +12,16 @@ function Pokemon({ avatar, name }) {
 export default function AjaxHook() {
   const [pokemones, setPokemones] = useState([]);
 
-  useEffect((url) => {
+  useEffect(() => {
     const getPokemon = async (url) => {
       let res = await fetch(url),
         json = await res.json();
 
-      json.results.forEach(async (element) => {
+      // Array temporal para acumular los Pokémones
+      let pokemonesTemp = [];
+
+      // Usamos un bucle for...of en lugar de forEach para manejar mejor la asincronía
+      for (let element of json.results) {
         let res = await fetch(element.url),
           json = await res.json();
 
@@ -26,8 +30,15 @@ export default function AjaxHook() {
           name: json.name,
           avatar: json.sprites.front_default,
         };
-        setPokemones((pokemones) => [...pokemones, pokemon]);
-      });
+
+        // Verificamos si el Pokémon ya existe en el array temporal
+        if (!pokemonesTemp.some((p) => p.id === pokemon.id)) {
+          pokemonesTemp.push(pokemon);
+        }
+      }
+
+      // Actualizamos el estado una sola vez
+      setPokemones(pokemonesTemp);
     };
 
     getPokemon("https://pokeapi.co/api/v2/pokemon/");
