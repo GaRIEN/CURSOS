@@ -5,6 +5,7 @@ import ScrollHooks from './componentes/Scroll-hooks';
 import RelojosHooks from './componentes/RelojHooks';
 import AjaxHook from './componentes/AjaxApiHook';
 import HooksPersonalizados from './componentes/HookPersonalizado';
+import Referenciashook from './componentes/Referencias';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
         <AjaxHook/>
         <br />
         <HooksPersonalizados/>
+        <br />
+        <Referenciashook/>
       </header>
     </div>
   );

@@ -10,12 +10,16 @@ export const useFetch =(url)=>{
         try {
             let res = await fetch(url);
             if (!res.ok) {
+                
                 throw{
                     err:true,
                     status:res.status,
                     statusText:!res.statusText?"Ocurrio un problema": res.statusText,
                 };
+
+             
             }
+
 
             let data = await res.json()
             setIsPending(false);
