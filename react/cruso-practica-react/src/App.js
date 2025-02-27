@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Formularios from './componentes/Formularios';
+import { Estilos } from './componentes/Estilos';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
 
         <br />
         <Formularios/>
+        <br />
+        <Estilos/>
       </header>
     </div>
   );
