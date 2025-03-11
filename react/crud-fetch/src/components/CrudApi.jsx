@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import CrudFormApi from "./CrudFormApi";
+import CrudTableApi from './CrudTableApi'
 
 
 
@@ -33,17 +35,17 @@ const CrudApi = () => {
       <h2 className="font-mono text-3xl font-bold text-center pt-8 text-white">
         CRUD APP
       </h2>
-      {/* <CrudForm
+      <CrudFormApi
         createData={createData}
         updateData={updateData}
         dataToEdit={dataToEdit}
         setDataToEdit={setDataToEdit}
       />
-      <CrudTable
+      <CrudTableApi
         data={db}
         setDataToEdit={setDataToEdit}
         deleteData={deleteData}
-      /> */}
+      />
     </div>
   );
 };
