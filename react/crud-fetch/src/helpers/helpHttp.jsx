@@ -1,7 +1,7 @@
-export const helptHttp = () => {
+export const helpHttp = () => {
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
-      accept: "aplication/json",
+      accept: "application/json",
     };
     const controller = new AbortController();
     options.signal = controller.signal;
@@ -18,7 +18,7 @@ export const helptHttp = () => {
 
     console.log(options);
 
-    setTimeout(() => controller.abort, 5000);
+    setTimeout(() => controller.abort(), 5000);
 
     return fetch(endpoint, options)
       .then((res) =>
