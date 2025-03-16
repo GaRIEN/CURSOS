@@ -59,6 +59,7 @@ const CrudFormApi = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
             <div className="mt-2">
               <input
                 type="text"
+                id="name"
                 name="name"
                 placeholder="Nombre"
                 className="block w-full rounded-md bg-white px-3 py-2 text-gray-900 shadow-sm placeholder-gray-400 
@@ -79,6 +80,7 @@ const CrudFormApi = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
             <div className="mt-2">
               <input
                 type="text"
+                id="constellation"
                 name="constellation"
                 placeholder="Constelación"
                 className="block w-full rounded-md bg-white px-3 py-2 text-gray-900 shadow-sm placeholder-gray-400 

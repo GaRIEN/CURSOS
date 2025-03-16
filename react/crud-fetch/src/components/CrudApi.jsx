@@ -33,8 +33,7 @@ const CrudApi = () => {
   }, []);
 
   const createData = (data) => {
-
-    data.id = String(Date.now()); 
+    data.id = String(Date.now());
     let options = {
       body: data,
       headers: { "Content-Type": "application/json" },
@@ -64,16 +63,25 @@ const CrudApi = () => {
         setError(res);
       }
     });
-
   };
   const deleteData = (id) => {
     let isDelete = window.confirm(
       `¿Estas seguro de que quieres eliminar el registro con id ${id}`
     );
 
+    let endpoint = `${url}/${id}`;
+    let options = {
+      headers: { "Content-Type": "application/json" },
+    };
     if (isDelete) {
-      let newData = db.filter((el) => el.id !== id);
-      setDb(newData);
+      api.del(endpoint, options).then((res) => {
+        if (!res.err) {
+          let newData = db.filter((el) => el.id !== id);
+          setDb(newData);
+        } else {
+          setError(res);
+        }
+      });
     } else {
       return;
     }
