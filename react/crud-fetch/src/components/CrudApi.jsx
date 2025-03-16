@@ -45,11 +45,11 @@ const CrudApi = () => {
     api.post(url, options).then((res) => {
       console.log("los resltados 1");
       console.log(res);
-      if (!result.err) {
+      if (!res.err) {
 
         // setDb([...db, result]);
       } else {
-        setError(result);
+        setError(res);
       }
       console.log("dentro del psot");
       console.log(res);
