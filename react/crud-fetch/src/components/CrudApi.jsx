@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import CrudFormApi from "./CrudFormApi";
 import CrudTableApi from './CrudTableApi'
 import {helpHttp} from '../helpers/helpHttp'
+import Loaders from './loaders/Loaders';
+import Message from './Message';
 
 
 
 const CrudApi = () => {
   const [db, setDb] = useState();
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
   const [dataToEdit, setDataToEdit] = useState(null);
 
 let api= helpHttp();
@@ -58,6 +62,10 @@ useEffect(() => {
         dataToEdit={dataToEdit}
         setDataToEdit={setDataToEdit}
       />
+
+      { loading && <Loaders/>}
+      
+      { error && <Message/>}
       <CrudTableApi
         data={db}
         setDataToEdit={setDataToEdit}
