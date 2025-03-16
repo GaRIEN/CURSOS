@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "seiya",
-      "constellation": "Pegaso"
+      "constellation": "Pegaso2"
     },
     {
       "id": "2",
@@ -11,14 +11,24 @@
       "constellation": "Dragón"
     },
     {
-      "id": 1742114450451,
+      "id": "1742114450451",
       "name": "GABRIEL HUAMAN CUCHULA",
       "constellation": "estrellas"
     },
     {
-      "id": 1742114620136,
+      "id": "1742114620136",
       "name": "garien",
       "constellation": "mensa"
+    },
+    {
+      "id": "1742152667031",
+      "name": "prueba3",
+      "constellation": "constelacion pruebaasas"
+    },
+    {
+      "id": "1742153311069",
+      "name": "Garien",
+      "constellation": "prueba"
     }
   ]
 }

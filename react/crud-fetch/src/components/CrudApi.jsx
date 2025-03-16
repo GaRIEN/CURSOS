@@ -30,34 +30,41 @@ const CrudApi = () => {
 
         setLoading(false);
       });
-  }, [url]);
+  }, []);
 
   const createData = (data) => {
-    console.log(data);
 
-    data.id = Date.now();
+    data.id = String(Date.now()); 
     let options = {
       body: data,
-      headers: { "content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
     };
     console.log(options);
 
     api.post(url, options).then((res) => {
-      console.log("los resltados 1");
-      console.log(res);
       if (!res.err) {
-
-        // setDb([...db, result]);
+        setDb([...db, res]);
       } else {
         setError(res);
       }
-      console.log("dentro del psot");
-      console.log(res);
     });
   };
   const updateData = (data) => {
-    let newData = db.map((el) => (el.id === data.id ? data : el));
-    setDb(newData);
+    let endpoint = `${url}/${data.id}`;
+    let options = {
+      body: data,
+      headers: { "Content-Type": "application/json" },
+    };
+
+    api.put(endpoint, options).then((res) => {
+      if (!res.err) {
+        let newData = db.map((el) => (el.id === data.id ? data : el));
+        setDb(newData);
+      } else {
+        setError(res);
+      }
+    });
+
   };
   const deleteData = (id) => {
     let isDelete = window.confirm(
