@@ -20,6 +20,8 @@ export const helpHttp = () => {
 
     setTimeout(() => controller.abort(), 5000);
 
+    console.log("paso a esta linea");
+
     return fetch(endpoint, options)
       .then((res) =>
         res.ok
@@ -36,6 +38,8 @@ export const helpHttp = () => {
   const get = (url, options = {}) => customFetch(url, options);
   const post = (url, options = {}) => {
     options.method = "POST";
+    console.log("entro a post");
+    console.log(url, options);
     return customFetch(url, options);
   };
   const put = (url, options = {}) => {

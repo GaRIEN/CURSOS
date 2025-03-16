@@ -24,6 +24,7 @@ const CrudFormApi = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Formulario enviado", form);
     if (!form.name || !form.constellation) {
       alert("error en traer los datos");
       return;
@@ -37,6 +38,7 @@ const CrudFormApi = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
     handleReset();
   };
+
   const handleReset = () => {
     setForm(initialForm);
     setDataToEdit(null);
@@ -100,7 +102,7 @@ const CrudFormApi = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
             onClick={handleReset}
             className="rounded-md bg-indigo-600 px-4 py-1 text-md font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            {dataToEdit ? "Cancelar":"Limpiar"}
+            {dataToEdit ? "Cancelar" : "Limpiar"}
           </button>
         </div>
       </form>

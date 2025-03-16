@@ -1,14 +1,24 @@
 {
   "santos": [
     {
-      "id": 1,
+      "id": "1",
       "name": "seiya",
       "constellation": "Pegaso"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Shiryu",
       "constellation": "Dragón"
+    },
+    {
+      "id": 1742114450451,
+      "name": "GABRIEL HUAMAN CUCHULA",
+      "constellation": "estrellas"
+    },
+    {
+      "id": 1742114620136,
+      "name": "garien",
+      "constellation": "mensa"
     }
   ]
 }

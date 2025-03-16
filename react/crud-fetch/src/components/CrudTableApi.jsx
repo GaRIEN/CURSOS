@@ -21,7 +21,7 @@ const CrudTableApi = ({ data, setDataToEdit, deleteData }) => {
             </tr>
           </thead>
           <tbody>
-            {!data || data.length === 0 ? (
+            {data.length === 0 ? (
               <tr>
                 <td colSpan={3} className="px-6 py-4 text-center text-gray-400">
                   Sin datos

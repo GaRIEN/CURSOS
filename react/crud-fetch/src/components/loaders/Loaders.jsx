@@ -1,9 +1,10 @@
 import React from 'react'
+import './Loader.css'
 
 const Loaders = () => {
   return (
     <div>
-      <h2>Loaders</h2>
+      <div className="l16" id='li6'></div> 
     </div>
   )
 }

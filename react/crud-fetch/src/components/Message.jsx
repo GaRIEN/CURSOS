@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Message = () => {
+const Message = ({ message }) => {
   return (
-    <div>
-      <h2>Messaje</h2>
+    <div className="bg-red-600 text-white px-6 py-3 rounded-lg border border-red-800">
+      <strong>⚠ Error:</strong> {message}
     </div>
-  )
-}
+  );
+};
 
-export default Message
+export default Message;

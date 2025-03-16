@@ -1,6 +1,5 @@
-
-import './App.css'
-import CrudApi from './components/CrudApi'
+import "./App.css";
+import CrudApi from "./components/CrudApi";
 
 function App() {
   return (
@@ -11,4 +10,3 @@ function App() {
 }
 
 export default App;
-
