@@ -40,13 +40,17 @@ const SongSearch = () => {
   };
 
   return (
-    <div>
-      <h1>SONG SEARCH </h1>
-      <SongForm handleSearch={handleSearch} />
-      {loading && <Loaders />}
-      {search && !loading && (
-        <SongDetails search={search} lyric={lyric} bio={bio} />
-      )}
+    <div className="d-flex items-center">
+      <h1 className="text-center pt-8 text-lg xl:text-3xl font-semibold text-white">
+        SONG SEARCH{" "}
+      </h1>
+      <div className="w-11/12  md:w-8/12 mx-auto">
+        <SongForm handleSearch={handleSearch} />
+        {loading && <Loaders />}
+        {search && !loading && (
+          <SongDetails search={search} lyric={lyric} bio={bio} />
+        )}
+      </div>
     </div>
   );
 };
