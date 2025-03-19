@@ -1,4 +1,11 @@
 <p>hola mundo</p>
-<app-header ngSkipHydration [msg]="mensaje" [personas]="personas"></app-header>
 
+<app-header
+  ngSkipHydration
+  [msg]="mensaje"
+  [personas]="personas"
+  (login)="setUserName($event)"
+></app-header>
+
+<h4>hola dese el hijo al padre {{ userName }}</h4>
 <router-outlet />

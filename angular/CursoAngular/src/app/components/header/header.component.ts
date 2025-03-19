@@ -1,4 +1,5 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, Output, EventEmitter, input } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -86,7 +87,15 @@ export class HeaderComponent {
   ];
 
   // @Input() msg: string = '';
-  msg= input<string>('')
+  msg = input<string>('');
   // @Input() personas: any[] = [];
-  personas=input<any>()
+  personas = input<any>();
+
+  @Output() login: EventEmitter<any> = new EventEmitter<any>();
+
+  userName: string = 'DR MICHI';
+
+  handleLogin() {
+    this.login.emit(this.userName);
+  }
 }

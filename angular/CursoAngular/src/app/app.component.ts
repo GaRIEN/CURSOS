@@ -19,4 +19,10 @@ export class AppComponent {
       edad: 25,
     },
   ];
+
+  userName: string = '';
+  setUserName(e: any) {
+    console.log('Recibido en el padre:', e);
+    this.userName = e;
+  }
 }
