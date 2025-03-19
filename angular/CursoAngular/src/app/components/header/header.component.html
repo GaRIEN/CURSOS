@@ -1,1 +1,38 @@
-<p>header works!</p>
+<h2>Hola, ¿cómo estás {{ user }}?</h2>
+<p (click)="Cont()">El número es: {{ numero }}</p>
+<p (click)="DisCont()">no se como:{{ numero }}</p>
+<input type="text" [(ngModel)]="user" (input)="Cont()" />
+
+@if (condicion) {
+<p>la condicion se cumple</p>
+
+}@else {
+<p>la segunda condicion no se cumple</p>
+}
+<h3>CICLO FOR</h3>
+
+@for (fruta of frutas; track fruta) {
+<p>{{ fruta }}</p>
+
+}
+
+<h3>RECORRIDO DE OBJETOS</h3>
+
+<ul>
+  @for (pais of paises; track pais.id) {
+  <li id="{{ pais.id }}">
+    <h4>{{ pais.nombre }} su capital es {{ pais.capital }}</h4>
+    <img [src]="pais.bandera" alt="" width="200" />
+  </li>
+  }
+</ul>
+
+<h3>COMUNICACIÓN DE PADRE A HIJO</h3>
+
+<p>{{ msg }}</p>
+
+<ul>
+  @for (persona of personas; track persona) {
+  <li>{{ persona.nombre }} {{ persona.apellido }} - {{ persona.edad }} años</li>
+  }
+</ul>
