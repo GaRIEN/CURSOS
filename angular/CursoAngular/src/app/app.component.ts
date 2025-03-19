@@ -14,7 +14,7 @@ export class AppComponent {
   mensaje: string = 'HOLA MENSAJE DESDE EL PADRE';
   personas: any = [
     {
-      nombre: 'gabriel',
+      nombre: 'Angel gabriel',
       apellido: 'huaman',
       edad: 25,
     },

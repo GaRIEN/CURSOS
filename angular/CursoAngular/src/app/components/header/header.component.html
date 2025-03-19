@@ -29,10 +29,10 @@
 
 <h3>COMUNICACIÓN DE PADRE A HIJO</h3>
 
-<p>{{ msg }}</p>
+<p>{{ msg() }}</p>
 
 <ul>
-  @for (persona of personas; track persona) {
+  @for (persona of personas(); track persona) {
   <li>{{ persona.nombre }} {{ persona.apellido }} - {{ persona.edad }} años</li>
   }
 </ul>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -85,6 +85,8 @@ export class HeaderComponent {
     },
   ];
 
-  @Input() msg: string = '';
-  @Input() personas: any[] = [];
+  // @Input() msg: string = '';
+  msg= input<string>('')
+  // @Input() personas: any[] = [];
+  personas=input<any>()
 }
