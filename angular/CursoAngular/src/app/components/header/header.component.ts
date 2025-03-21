@@ -164,5 +164,7 @@ export class HeaderComponent {
 
   handleSubmit(): void {
     console.log(this.movieForm.value);
+    //para limpiar formularios
+    this.movieForm.reset();
   }
 }
