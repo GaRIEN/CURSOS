@@ -40,3 +40,25 @@
 <h3>COMUNICACION HIJO A PADRE</h3>
 
 <button (click)="handleLogin()">Logear</button>
+
+<h2 [ngClass]="{ dark: isDark }">NgClass PRueba</h2>
+<button (click)="toggleDark()">toggle dark</button>
+
+<h2>REACTIVE FORMS</h2>
+
+<form [formGroup]="movieForm" (submit)="handleSubmit()">
+  <fieldset>
+    <label for="movie-name">Movie Name</label>
+    <input type="text" id="movie-name" formControlName="name" />
+  </fieldset>
+  <fieldset>
+    <label for="movie-duration">Movie Duration</label>
+    <input type="text" id="movie-duration" formControlName="duration" />
+  </fieldset>
+  <fieldset>
+    <label for="movie-director">Movie Director</label>
+    <input type="text" id="movie-director" formControlName="director" />
+  </fieldset>
+
+  <button>create movie</button>
+</form>

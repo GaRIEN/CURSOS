@@ -1,12 +1,18 @@
 import { Component, input, output } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import product from '../../models/Productus';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgClass, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
@@ -108,6 +114,29 @@ export class HeaderComponent {
 
   gato: string = '';
   product: product;
+  // constructor() {
+  //   this.gato = 'llama';
+  //   this.product = {
+  //     name: 'computer',
+  //     price: 1000,
+  //     isForsale: true,
+  //   };
+  // }
+
+  isDark: boolean = false;
+
+  toggleDark() {
+    this.isDark = !this.isDark;
+  }
+
+  //FORMULARIOS
+
+  movieForm: FormGroup; //para el formulario
+  //para los campos
+  name: FormControl;
+  duration: FormControl;
+  director: FormControl;
+
   constructor() {
     this.gato = 'llama';
     this.product = {
@@ -115,7 +144,21 @@ export class HeaderComponent {
       price: 1000,
       isForsale: true,
     };
+
+    //para los formularios
+
+    this.name = new FormControl('');
+    this.duration = new FormControl('');
+    this.director = new FormControl('');
+
+    this.movieForm = new FormGroup({
+      name: this.name,
+      duration: this.duration,
+      director: this.duration,
+    });
   }
 
-
+  handleSubmit(): void {
+    console.log(this.movieForm.value);
+  }
 }
