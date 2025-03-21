@@ -5,6 +5,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import product from '../../models/Productus';
 import { NgClass } from '@angular/common';
@@ -147,14 +148,17 @@ export class HeaderComponent {
 
     //para los formularios
 
-    this.name = new FormControl('');
-    this.duration = new FormControl('');
+    this.name = new FormControl('', Validators.required);
+    this.duration = new FormControl('', [
+      Validators.required,
+      Validators.max(300),
+    ]);
     this.director = new FormControl('');
 
     this.movieForm = new FormGroup({
       name: this.name,
       duration: this.duration,
-      director: this.duration,
+      director: this.director,
     });
   }
 
