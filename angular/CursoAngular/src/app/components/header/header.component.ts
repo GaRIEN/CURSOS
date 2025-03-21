@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import product from '../../models/Productus';
 
 @Component({
   selector: 'app-header',
@@ -91,11 +92,30 @@ export class HeaderComponent {
   // @Input() personas: any[] = [];
   personas = input<any>();
 
-  @Output() login: EventEmitter<any> = new EventEmitter<any>();
+  //es para comunicar hijo a padre
+
+  // @Output() login: EventEmitter<any> = new EventEmitter<any>();
+  //modificamos para que sea mas entendible
+  login = output<any>();
 
   userName: string = 'DR MICHI';
 
   handleLogin() {
     this.login.emit(this.userName);
   }
+
+  //CONSTRUCTORES y MODELOS INTERFACES
+
+  gato: string = '';
+  product: product;
+  constructor() {
+    this.gato = 'llama';
+    this.product = {
+      name: 'computer',
+      price: 1000,
+      isForsale: true,
+    };
+  }
+
+
 }
