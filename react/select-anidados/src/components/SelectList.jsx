@@ -16,14 +16,32 @@ const SelectList = ({ title, url, handleChange }) => {
   let options = data.response[title];
 
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
+    <div>
+      <label
+        htmlFor={id}
+        className="block text-lg font-semibold text-gray-700  px-2 mb-1"
+      >
+        {label}
+      </label>
       {loading && <Loader />}
-      <select name={id} id={id} onChange={handleChange}>
-        <option value="">Elige un {title}</option>
-        {data && options.map((el,index) => <option key={index} value={el}> {el} </option>)}
+      <select
+        name={id}
+        id={id}
+        onChange={handleChange}
+        className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+      >
+        <option
+          value=""
+          className="text-gray-500"
+        >{`Elige un ${title}`}</option>
+        {data &&
+          options.map((el, index) => (
+            <option key={index} value={el}>
+              {el}
+            </option>
+          ))}
       </select>
-    </>
+    </div>
   );
 };
 

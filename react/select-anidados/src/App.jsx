@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h2>Select Anidados</h2>
+
       <SelectAnidados />
     </>
   );
