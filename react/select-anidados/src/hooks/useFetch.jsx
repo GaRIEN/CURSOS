@@ -8,11 +8,12 @@ export const useFetch = (url) => {
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
-    const fetcData = async () => {
+    const fetchData = async () => {
       setLoading(true);
 
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, { signal });
+
         if (!res.ok) {
           let err = new Error("error en la peticion Fetch");
           err.status = res.status || "OO";
@@ -38,7 +39,8 @@ export const useFetch = (url) => {
       }
     };
 
-    fetcData();
+    fetchData();
+    return () => abortController.abort();
   }, [url]);
 
   return { data, error, loading };
