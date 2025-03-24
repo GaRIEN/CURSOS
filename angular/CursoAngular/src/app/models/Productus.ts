@@ -1,4 +1,4 @@
-export default interface product{
+export default interface Product{
   name:string,
   price:number,
   isForsale:boolean

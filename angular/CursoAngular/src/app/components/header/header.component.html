@@ -70,3 +70,10 @@
 
   <button [disabled]="movieForm.invalid">create movie</button>
 </form>
+
+<h2>SERVICES SINGLENTON</h2>
+<h3>este es componente hijo</h3>
+<p>{{productService.product.name}}</p>
+
+<button (click)="productService.setProductName('refrigeradora')">cambiar nombre</button>
+

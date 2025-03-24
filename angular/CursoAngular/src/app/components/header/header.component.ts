@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import product from '../../models/Productus';
 import { NgClass } from '@angular/common';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -138,7 +139,7 @@ export class HeaderComponent {
   duration: FormControl;
   director: FormControl;
 
-  constructor() {
+  constructor(public productService:ProductService) {
     this.gato = 'llama';
     this.product = {
       name: 'computer',
