@@ -6,11 +6,11 @@
 header {
   background-color: blueviolet;
   height: 50px;
-    display: flex;
+  display: flex;
   align-items: center;
 }
 nav {
-width: 100%;
+  width: 100%;
 }
 ul {
   display: flex;

@@ -1,0 +1,12 @@
+.container-movie{
+  background-color: rgb(255, 148, 8);
+  list-style:none;
+}
+
+.container-movie:hover{
+  background-color: rgb(130, 230, 15);
+}
+
+.link{
+  text-decoration: none;
+}
