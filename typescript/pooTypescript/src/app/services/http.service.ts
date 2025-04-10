@@ -18,10 +18,10 @@ export const helpHttp = () => {
 
     if (options.body) {
       options.body = JSON.stringify(options.body);
-      if (!options.headers["content-Type"]) {
+      if (!options.headers["Content-Type"]) {
         options.headers = {
           ...options.headers,
-          "content-Type": "application/json",
+          "Content-Type": "application/json",
         };
       }
     } else {
