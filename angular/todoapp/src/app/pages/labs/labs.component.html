@@ -1,0 +1,21 @@
+<div class="container">
+  <p>labs works!</p>
+  <h1>HOLA MUNDO</h1>
+
+  <h2>{{ welcome }}</h2>
+  <ul>
+    @for (task of tasks; track $index) {
+    <li>{{ task }}</li>
+    }
+  </ul>
+  <button [disabled]="desabilitado">click me</button>
+
+  <img [src]="imagen" alt="" />
+
+  <br />
+
+  <button (click)="imprimir()">enviar</button>
+  <br>
+  <button (dblclick)="dobleclick()">enviar</button>
+  <input type="text" [name]="names.name" [id]="names.id" />
+</div>
