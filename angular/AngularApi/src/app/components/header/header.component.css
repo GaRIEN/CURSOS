@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: blueviolet;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+nav {
+  width: 100%;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 600;
+  color: azure;
+  list-style-type: none;
+}
