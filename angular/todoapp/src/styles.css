@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-html,
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -28,6 +28,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
+}
+.container {
+  padding: 50px 0;
 }
 
 :focus {
