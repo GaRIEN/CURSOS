@@ -1,5 +1,5 @@
 <div class="container">
-  <p>labs works!</p>
+  <p>{{name()}}</p>
   <h1>HOLA MUNDO</h1>
 
   <h2>{{ welcome }}</h2>
@@ -15,7 +15,18 @@
   <br />
 
   <button (click)="imprimir()">enviar</button>
-  <br>
+  <br />
   <button (dblclick)="dobleclick()">enviar</button>
-  <input type="text" [name]="names.name" [id]="names.id" />
+  <input
+    type="text"
+    [name]="names.name"
+    [id]="names.id"
+    (change)="handleChange($event)"
+  />
+  <p>keydown</p>
+  <input type="text" name="name" id="1" (keydown)="handleKeydown($event)" />
+
+  <p>signal</p>
+  <input type="text" [value]="name()" id="1" (change)="escuchandosignal($event)" />
+  <p>{{name()}}</p>
 </div>
