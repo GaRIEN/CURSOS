@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css',
 })
@@ -41,4 +43,17 @@ export class LabsComponent {
     const target = event.target as HTMLInputElement;
     this.name.set(target.value);
   }
+
+  //para formularios
+  colorcontrol = new FormControl();
+  constructor() {
+    this.colorcontrol.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+  }
+  //clases
+  nameControl = new FormControl('20', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.minLength(3)],
+  });
 }

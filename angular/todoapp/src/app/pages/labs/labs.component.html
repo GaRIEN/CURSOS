@@ -1,5 +1,5 @@
 <div class="container">
-  <p>{{name()}}</p>
+  <p>{{ name() }}</p>
   <h1>HOLA MUNDO</h1>
 
   <h2>{{ welcome }}</h2>
@@ -27,6 +27,25 @@
   <input type="text" name="name" id="1" (keydown)="handleKeydown($event)" />
 
   <p>signal</p>
-  <input type="text" [value]="name()" id="1" (change)="escuchandosignal($event)" />
-  <p>{{name()}}</p>
+  <input
+    type="text"
+    [value]="name()"
+    id="1"
+    (change)="escuchandosignal($event)"
+  />
+  <p>{{ name() }}</p>
+  <hr />
+  <p>FORMULARIOS</p>
+  <input type="color" [formControl]="colorcontrol" />
+  <p>color : {{ colorcontrol.value }}</p>
+  <hr />
+  <p>CLASES</p>
+  <p>
+    <input type="text" [formControl]="nameControl"/> <br>
+
+    <span class="message-error" [class.show]="nameControl.invalid && nameControl.touched"> Nombre invalido</span>
+  </p>
+  <p>
+    <input type="text" />
+  </p>
 </div>

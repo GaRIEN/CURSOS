@@ -337,6 +337,17 @@ html .clear-completed:active {
 .info a:hover {
   text-decoration: underline;
 }
+.error {
+  margin-top: 15px;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  font-size: 1.1rem;
+  transition: all linear 0.5s;
+}
+.message-error {
+  opacity: 1;
+}
 
 /*
       Hack to remove background from Mobile Safari.
