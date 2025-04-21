@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { task } from '../../models/task.model';
+import { Filters, task } from '../../models/task.model';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  Filters = Filters;
   newTaskControl = new FormControl('', {
     nonNullable: true,
     validators: [
@@ -21,7 +23,7 @@ export class HomeComponent {
     ],
   });
   tasks = signal<task[]>([
-    { id: 11, title: 'instalar angular', completed: true },
+    { id: 11, title: 'instalar angular', completed: false },
     { id: 2, title: 'crear componentes', completed: false },
     { id: 32, title: 'crear servicios', completed: false },
     { id: 4, title: 'crear rutas', completed: false },
@@ -32,6 +34,19 @@ export class HomeComponent {
     { id: 9, title: 'crear modulos', completed: false },
     { id: 100, title: 'crear lazy loading', completed: false },
   ]);
+
+  filter = signal<Filters>(Filters.All);
+
+  tasksByFilter = computed(() => {
+    const filter = this.filter();
+    const tasks = this.tasks();
+    const filterMap: Record<Filters, () => task[]> = {
+      [Filters.Completed]: () => tasks.filter((task) => task.completed),
+      [Filters.Pending]: () => tasks.filter((task) => !task.completed),
+      [Filters.All]: () => tasks,
+    };
+    return filterMap[filter]();
+  });
 
   handleChange() {
     //traemos lo que tenemos y agreamo lo nuevo
@@ -50,6 +65,7 @@ export class HomeComponent {
       id: Date.now(),
       title,
       completed: false,
+      editing: false,
     };
     this.tasks.update((tasks) => [newTask, ...tasks]);
   }
@@ -64,5 +80,36 @@ export class HomeComponent {
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
+  }
+
+  editTask(id: number) {
+    console.log(id);
+    this.tasks.update((tasks) =>
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, editing: true }
+          : { ...task, editing: false }
+      )
+    );
+  }
+  updateTask(event: Event, id: number) {
+    const newtitle = (event.target as HTMLInputElement).value;
+    this.newTaskControl.setValue(newtitle);
+    const isvalid = this.newTaskControl.valid;
+    this.tasks.update((tasks) =>
+      tasks.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              title: isvalid ? newtitle.trim() : task.title,
+              editing: false,
+            }
+          : task
+      )
+    );
+  }
+
+  changeFilter(filter: Filters) {
+    this.filter.set(filter);
   }
 }
