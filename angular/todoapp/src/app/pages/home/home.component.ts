@@ -1,8 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Filters, task } from '../../models/task.model';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -22,18 +21,7 @@ export class HomeComponent {
       Validators.maxLength(50),
     ],
   });
-  tasks = signal<task[]>([
-    { id: 11, title: 'instalar angular', completed: false },
-    { id: 2, title: 'crear componentes', completed: false },
-    { id: 32, title: 'crear servicios', completed: false },
-    { id: 4, title: 'crear rutas', completed: false },
-    { id: 5, title: 'crear pipes', completed: false },
-    { id: 6, title: 'crear directivas', completed: false },
-    { id: 7, title: 'crear guardas', completed: false },
-    { id: 8, title: 'crear interceptores', completed: false },
-    { id: 9, title: 'crear modulos', completed: false },
-    { id: 100, title: 'crear lazy loading', completed: false },
-  ]);
+  tasks = signal<task[]>([]);
 
   filter = signal<Filters>(Filters.All);
 
@@ -111,5 +99,24 @@ export class HomeComponent {
 
   changeFilter(filter: Filters) {
     this.filter.set(filter);
+  }
+
+  //ngOnInit para poder guardar en localstorage,
+  //este se va ejecutar solo 1 vez cuando se recaga la pagina
+  ngOnInit() {
+    console.log('corriendo el oninit');
+    const storageTasks = localStorage.getItem('tasks');
+    if (storageTasks) {
+      const tasks: task[] = JSON.parse(storageTasks);
+      this.tasks.set(tasks);
+    }effect;
+  }
+
+  constructor() {
+    ///el efect se va ejecutar siempre que escucha la señal de cambio en la señal
+    effect(() => {
+      console.log('SE EJECUTA EL CONSTRUCTO EL EFFECT');
+      localStorage.setItem('tasks', JSON.stringify(this.tasks()));
+    });
   }
 }
