@@ -9,4 +9,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent {}
+export class ListComponent {
+
+  fromChild(event:string){
+    console.log("llego al padre");
+    console.log(event);
+  }
+
+}
