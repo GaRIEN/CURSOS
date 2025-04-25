@@ -1,10 +1,20 @@
 <div class="w-[80%] mx-auto pt-8">
+  <h1>About</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis ratione odit quo illum sequi tempore pariatur assumenda? Amet impedit vero voluptatibus! Esse, voluptates error non est beatae eligendi fugiat illo?</p>
+  <p>NUmero de clientes   @if (duration () >0) {
+      <app-counter [duration]="duration()" [message]="message()"></app-counter>
+  } </p>
+
+<div>
+  <p>audio</p>
+  <app-wave-audio audioUrl="quenaAudio.mp3"></app-wave-audio>
+</div>
+
+<!--
   <input type="number" [value]="duration()" (change)="changeDuration($event)" />
 
-  <input type="text" [value]="message()" (change)="changeMessage($event)" />
+  <input type="text" [value]="message()" (change)="changeMessage($event)" /> -->
 
-  @if (duration () >0) {
-      <app-counter [duration]="duration()" [message]="message()"></app-counter>
-  }
+
 
 </div>
