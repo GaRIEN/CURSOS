@@ -1,26 +1,10 @@
-<div class="grid grid-cols-3 content-center items-center">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 content-center items-center w-[90%] lg:w-[80%] mx-auto mt-8 gap-4">
+  @for (img of imgProduct; track $index) {
   <app-product
-    title="Product 1"
-    [price]="50"
-    img="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/127012055_01/w=800,h=800,fit=pad"
+    title="{{ img.title }}"
+    [price]="+img.price"
+    img="{{ img.img }}"
     (addToCard)="fromChild($event)"
   ></app-product>
-  <app-product
-    title="Product 2"
-    [price]="50"
-    img="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/127012055_01/w=800,h=800,fit=pad"
-    (addToCard)="fromChild($event)"
-  ></app-product>
-  <app-product
-    title="Product 3"
-    [price]="50"
-    img="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/127012055_01/w=800,h=800,fit=pad"
-    (addToCard)="fromChild($event)"
-  ></app-product>
-  <app-product
-    title="Product 4"
-    [price]="50"
-    img="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaPE/127012055_01/w=800,h=800,fit=pad"
-    (addToCard)="fromChild($event)"
-  ></app-product>
+  }
 </div>

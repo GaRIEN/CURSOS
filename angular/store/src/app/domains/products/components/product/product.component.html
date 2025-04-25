@@ -1,10 +1,12 @@
-<div class="flex flex-col justify-center items-center">
-  <img class="w-70" src="{{ img }}" alt="" />
+<div
+  class="flex flex-col justify-center items-center max-w-[450px] border-2 border-gray-100"
+>
+  <img class="w-full" src="{{ img }}" alt="" />
   <h1>{{ title }}</h1>
   <h3>{{ price }}</h3>
 
   <button
-    class="border-2 px-1 rounded-md"
+    class="py-2 rounded-lg mb-7 bg-gray-200 w-[95%] font-medium hover:bg-gray-300"
     aria-label="Agregar"
     (click)="addToCartHandler()"
   >
