@@ -1,42 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product.component';
 import { CommonModule } from '@angular/common';
+import { Products } from '../../../shared/models/products.models';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
 export class ListComponent {
-  imgProduct: { id: number; title: string; price: number; img: string }[] = [
-    {
-      id: 1,
-      title: 'product 1',
-      price: 250,
-      img: 'https://picsum.photos/640/640?r=23',
-    },
+  products = signal<Products[]>([]);
 
-    {
-      id: 2,
-      title: 'product 2',
-      price: 200,
-      img: 'https://picsum.photos/640/640?r=20',
-    },
-    {
-      id: 3,
-      title: 'product 3',
-      price: 50,
-      img: 'https://picsum.photos/640/640?r=21',
-    },
-    {
-      id: 4,
-      title: 'product 4',
-      price: 450,
-      img: 'https://picsum.photos/640/640?r=28',
-    },
-  ];
+  constructor() {
+    const initProduct: Products[] = [
+      {
+        id: Date.now(),
+        title: 'product 1',
+        price: 250,
+        img: 'https://picsum.photos/640/640?r=23',
+        create: new Date().toISOString(),
+      },
+
+      {
+        id: Date.now(),
+        title: 'product 2',
+        price: 200,
+        img: 'https://picsum.photos/640/640?r=20',
+        create: new Date().toISOString(),
+      },
+    ];
+
+    this.products.set(initProduct);
+  }
 
   fromChild(event: string) {
     console.log('llego al padre');

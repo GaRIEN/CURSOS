@@ -1,10 +1,13 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 content-center items-center w-[90%] lg:w-[80%] mx-auto mt-8 gap-4">
-  @for (img of imgProduct; track $index) {
-  <app-product
-    title="{{ img.title }}"
-    [price]="+img.price"
-    img="{{ img.img }}"
-    (addToCard)="fromChild($event)"
-  ></app-product>
-  }
+<div class="w-[95%] lg:w-[80%] mx-auto">
+  <app-header> </app-header>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 content-center items-center  mt-8 gap-4"
+  >
+    @for (product of products(); track $index) {
+    <app-product
+      [product]="product"
+      (addToCard)="fromChild($event)"
+    ></app-product>
+    }
+  </div>
 </div>
