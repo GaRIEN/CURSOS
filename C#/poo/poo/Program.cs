@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 var poderVolar = new SuperPoder();
 poderVolar.Nombre = "Volar";
 poderVolar.Descripcion = "Capacidad de volar y razonar";
@@ -23,6 +25,8 @@ gabriel.Add(poderSuperFuerza);
 superheroe1.poderes = gabriel;
 
 
+string user=  superheroe1.UsarPoder();
+Console.WriteLine(user);
 
 class Superheroe
     {
@@ -40,6 +44,19 @@ class Superheroe
         poderes = new List<SuperPoder>();
         EsVengador = false;
     }
+    public string UsarPoder()
+    {
+        //foreach(var poder in poderes)
+        //{
+        //    Console.WriteLine($"{Nombre} Usando el poder: {poder.Nombre}");
+        //}
+        StringBuilder sb = new StringBuilder();
+        foreach (var poder in poderes)
+        {
+            sb.AppendLine($"{Nombre} Usando el poder: {poder.Nombre}");
+        }
+        return sb.ToString();
+;    }
 }
 
 class SuperPoder
