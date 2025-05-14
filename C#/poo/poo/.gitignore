@@ -1,0 +1,43 @@
+﻿﻿# Build results
+.vs/
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Compiled DLLs, EXEs, PDBs
+*.dll
+*.exe
+*.pdb
+
+# VS Code settings
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.nupkg.sha512
+
+# Logs
+*.log
+
+# dotnet publish
+publish/
+
+# sourcelink y cache
+*.sourcelink.json
+*.cache
+
+# User-specific files
+*.userprefs
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
