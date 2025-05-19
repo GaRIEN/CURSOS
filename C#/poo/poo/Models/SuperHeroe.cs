@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using poo.Interfaces;
 
 namespace poo.Models
 {
-    class Superheroe:Heroe
+    class Superheroe:Heroe, ISuperHeroe
     {
         // Atributos o propiedades
         //creamos una variable priva para manejar el encapsulamiento

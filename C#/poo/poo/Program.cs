@@ -1,6 +1,9 @@
 ﻿
 using System.Text;
+using poo;
 using poo.Models;
+
+var imprimirinfo = new ImprimirInfo();
 
 var poderVolar = new SuperPoder();
 poderVolar.Nombre = "Volar";
@@ -24,6 +27,7 @@ List<SuperPoder> gabriel = new List<SuperPoder>();
 gabriel.Add(poderVolar);
 gabriel.Add(poderSuperFuerza);
 superheroe1.poderes = gabriel;
+imprimirinfo.ImprimirsuperHeroe(superheroe1);
 
 //para un aniheroe
 var wolvering = new AntiHeroe();
