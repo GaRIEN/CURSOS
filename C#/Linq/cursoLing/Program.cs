@@ -1,12 +1,9 @@
-﻿var frutas = new string[] { "Sandia", "Fresa", "Mango", "Mango de azúcar", "Mango Tomy" };
+﻿//var frutas = new string[] { "Sandia", "Fresa", "Mango", "Mango de azúcar", "Mango Tomy" };
 
-var MangoList = frutas.Where(fruta => fruta.StartsWith("Mango")).ToList();
 //var MangoList = frutas.Where(fruta => fruta.StartsWith("Mango")).ToList();
 
+//MangoList.ForEach(mango => Console.WriteLine(mango));
 
-//foreach (var mango in MangoList)
-//{
-//    Console.WriteLine(mango);
-//}
+using cursoLing;
 
-MangoList.ForEach(mango => Console.WriteLine(mango));
+LinqQueries queries = new LinqQueries();
