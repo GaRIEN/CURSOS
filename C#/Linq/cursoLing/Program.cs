@@ -18,7 +18,9 @@ LinqQueries queries = new LinqQueries();
 
 //Console.WriteLine($"Algun libro publicado 2005: {queries.AlgunLibroPublicado2005()}");
 
-ImprimirValores(queries.LibosdePython());
+//ImprimirValores(queries.LibosdePython());
+//ImprimirValores(queries.librosDeJava());
+ImprimirValores(queries.LibrosMas450Paginas());
 
 
 void ImprimirValores(IEnumerable<Book> libros)

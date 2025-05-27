@@ -34,14 +34,14 @@ namespace cursoLing
 
         public IEnumerable<Book> More250Pages()
         {
-            return librosCollection.Where(libros => libros.Title.Contains("in Action") && libros.pageCount>250);
+            return librosCollection.Where(libros => libros.Title.Contains("in Action") && libros.pageCount > 250);
         }
 
         public bool TodosEstatus()
         {
-            return librosCollection.All(libros => libros.status!= string.Empty);
+            return librosCollection.All(libros => libros.status != string.Empty);
         }
-        
+
         public bool AlgunLibroPublicado2005()
         {
             return librosCollection.Any(libros => libros.publishedDate.Year == 2005);
@@ -50,6 +50,16 @@ namespace cursoLing
         public IEnumerable<Book> LibosdePython()
         {
             return librosCollection.Where(libros => libros.categories.Contains("Python"));
+        }
+
+        public IEnumerable<Book> librosDeJava()
+        {
+            return librosCollection.Where(libros => libros.categories.Contains("Java")).OrderBy(p => p.Title);
+        }
+
+        public IEnumerable<Book> LibrosMas450Paginas()
+        {
+            return librosCollection.Where(libros => libros.pageCount > 450).OrderByDescending(p => p.pageCount);
         }
 
     }
