@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace cursoLing
             using (StreamReader reader = new StreamReader("books.json"))
             {
                 string json = reader.ReadToEnd();
-                this.librosCollection = JsonSerializer.Deserialize<List<Book>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                this.librosCollection = JsonSerializer.Deserialize<List<Book>>(json, new System.Text.Json.JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
             }
         }
@@ -25,5 +26,31 @@ namespace cursoLing
         {
             return librosCollection;
         }
+
+        public IEnumerable<Book> LibrosDespues200()
+        {
+            return librosCollection.Where(libros => libros.publishedDate.Year > 2000);
+        }
+
+        public IEnumerable<Book> More250Pages()
+        {
+            return librosCollection.Where(libros => libros.Title.Contains("in Action") && libros.pageCount>250);
+        }
+
+        public bool TodosEstatus()
+        {
+            return librosCollection.All(libros => libros.status!= string.Empty);
+        }
+        
+        public bool AlgunLibroPublicado2005()
+        {
+            return librosCollection.Any(libros => libros.publishedDate.Year == 2005);
+        }
+
+        public IEnumerable<Book> LibosdePython()
+        {
+            return librosCollection.Where(libros => libros.categories.Contains("Python"));
+        }
+
     }
 }
