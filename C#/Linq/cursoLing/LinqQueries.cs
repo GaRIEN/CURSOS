@@ -61,6 +61,11 @@ namespace cursoLing
         {
             return librosCollection.Where(libros => libros.pageCount > 450).OrderByDescending(p => p.pageCount);
         }
+        public IEnumerable<Book> TresPrimeroLibros()
+        {
+            return librosCollection.Where(libro => libro.categories.Contains("Java")).OrderByDescending(p=>p.publishedDate).Take(3);
+        }
+
 
     }
 }

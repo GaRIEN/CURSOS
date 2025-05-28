@@ -20,7 +20,9 @@ LinqQueries queries = new LinqQueries();
 
 //ImprimirValores(queries.LibosdePython());
 //ImprimirValores(queries.librosDeJava());
-ImprimirValores(queries.LibrosMas450Paginas());
+//ImprimirValores(queries.LibrosMas450Paginas());
+ImprimirValores(queries.TresPrimeroLibros());
+
 
 
 void ImprimirValores(IEnumerable<Book> libros)
