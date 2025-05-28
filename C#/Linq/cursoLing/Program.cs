@@ -21,7 +21,8 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.LibosdePython());
 //ImprimirValores(queries.librosDeJava());
 //ImprimirValores(queries.LibrosMas450Paginas());
-ImprimirValores(queries.TresPrimeroLibros());
+//ImprimirValores(queries.TresPrimeroLibros());
+ImprimirValores(queries.librosMasde400PaginasyTomar2());
 
 
 
