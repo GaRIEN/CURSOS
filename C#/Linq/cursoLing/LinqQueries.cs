@@ -105,6 +105,30 @@ namespace cursoLing
             return librosCollection.MaxBy(libro => libro.publishedDate);
         }
 
+        public int sumadeTodasPainasentre0y500()
+        {
+            return librosCollection.Where(libro => libro.pageCount > 0 && libro.pageCount < 500).Sum(libro => libro.pageCount);
+        }
 
+        public string TitulosDespuesDel2015Concatenados()
+        {
+           return string.Join(", ", librosCollection.Where(libro => libro.publishedDate.Year > 2015).Select(libro => libro.Title));
+        }
+
+        public double promediocaracteresTitulos()
+        {
+             return librosCollection.Average(libro => libro.Title.Length);
+        }
+
+        public IEnumerable<IGrouping<int, Book>> LibrosDespues200Agrupados()
+        {
+            return librosCollection.Where(libro => libro.publishedDate.Year >= 2000).GroupBy(p => p.publishedDate.Year);
+        }
+
+        public ILookup<char, Book> DictionaryBookByChar()
+        {
+            // En el ToLookUp se pone los valores del diccionario que vas a retornar (char, book)
+            return librosCollection.ToLookup(x => x.Title[0], x => x);
+        }
     }
     }
