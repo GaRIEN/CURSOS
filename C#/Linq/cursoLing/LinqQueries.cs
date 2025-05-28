@@ -63,7 +63,7 @@ namespace cursoLing
         }
         public IEnumerable<Book> TresPrimeroLibros()
         {
-            return librosCollection.Where(libro => libro.categories.Contains("Java")).OrderByDescending(p=>p.publishedDate).Take(3);
+            return librosCollection.Where(libro => libro.categories.Contains("Java")).OrderByDescending(p => p.publishedDate).Take(3);
         }
 
         public IEnumerable<Book> librosMasde400PaginasyTomar2()
@@ -71,5 +71,29 @@ namespace cursoLing
             return librosCollection.Where(libro => libro.pageCount > 400).Take(4).Skip(2);
         }
 
+        public IEnumerable<Book> TresPrimeroLibroSelect()
+        {
+            return librosCollection.Take(3).Select(libro => new Book
+            {
+                Title = libro.Title,
+
+                pageCount = libro.pageCount
+            });
+        }
+        public int CantidadLibrosMasDe250()
+        {
+            //return librosCollection.Where(libro => libro.pageCount >= 250 && libro.pageCount <=500 ).Count();
+            return librosCollection.Count(libro => libro.pageCount > 250 && libro.pageCount < 500);
+        }
+
+        public DateTime FechadePublicacionMenor()
+        {
+            return librosCollection.Min(libro => libro.publishedDate);
+        }
+        public int LibrosMasPaginas()
+        { 
+            return librosCollection.Max(libro => libro.pageCount);
+        }
+
     }
-}
+    }

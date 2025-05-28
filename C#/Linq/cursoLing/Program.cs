@@ -22,7 +22,11 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.librosDeJava());
 //ImprimirValores(queries.LibrosMas450Paginas());
 //ImprimirValores(queries.TresPrimeroLibros());
-ImprimirValores(queries.librosMasde400PaginasyTomar2());
+//ImprimirValores(queries.librosMasde400PaginasyTomar2());
+//ImprimirValores(queries.TresPrimeroLibroSelect());
+//Console.WriteLine($"la cantidad de libros: {queries.CantidadLibrosMasDe250()}");
+//Console.WriteLine($"La publicacion mas Antigua: {queries.FechadePublicacionMenor()}");
+Console.WriteLine($"Libro con mas paginas: {queries.LibrosMasPaginas()}");
 
 
 
