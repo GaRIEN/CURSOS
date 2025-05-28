@@ -26,7 +26,9 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.TresPrimeroLibroSelect());
 //Console.WriteLine($"la cantidad de libros: {queries.CantidadLibrosMasDe250()}");
 //Console.WriteLine($"La publicacion mas Antigua: {queries.FechadePublicacionMenor()}");
-Console.WriteLine($"Libro con mas paginas: {queries.LibrosMasPaginas()}");
+//Console.WriteLine($"Libro con mas paginas: {queries.LibrosMasPaginas()}");
+//Console.WriteLine(queries.LibroConMenorPagina().Title);
+Console.WriteLine(queries.LibroFechaReciente().Title);
 
 
 

@@ -95,5 +95,16 @@ namespace cursoLing
             return librosCollection.Max(libro => libro.pageCount);
         }
 
+        public Book LibroConMenorPagina()
+        {
+            return librosCollection.Where(libro => libro.pageCount > 0).MinBy(p => p.pageCount);
+        }
+
+        public Book LibroFechaReciente()
+        {
+            return librosCollection.MaxBy(libro => libro.publishedDate);
+        }
+
+
     }
     }
