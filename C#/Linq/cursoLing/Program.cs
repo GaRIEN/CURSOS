@@ -34,9 +34,10 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine(queries.promediocaracteresTitulos());
 //ImprimirGrupo(queries.LibrosDespues200Agrupados());
 
-var dictionaryLookup = queries.DictionaryBookByChar();
-PrintDictionary(dictionaryLookup, 'A');
+//var dictionaryLookup = queries.DictionaryBookByChar();
+//PrintDictionary(dictionaryLookup, 'A');
 
+ImprimirValores(queries.librosconmasde500pagpub2005());
 
 
 void ImprimirValores(IEnumerable<Book> libros)

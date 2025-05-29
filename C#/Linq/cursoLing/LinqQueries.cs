@@ -130,5 +130,18 @@ namespace cursoLing
             // En el ToLookUp se pone los valores del diccionario que vas a retornar (char, book)
             return librosCollection.ToLookup(x => x.Title[0], x => x);
         }
+
+        public IEnumerable<Book> librosconmasde500pagpub2005()
+        {
+            var colection = librosCollection.Where(p => p.publishedDate.Year > 2005);
+            var resultado = librosCollection
+              .Where(p => p.pageCount > 500)
+              .Join(colection,
+                  p => p.Title,
+                  x => x.Title,
+                  (p, x) => p);
+
+            return resultado;
+        }
     }
     }
