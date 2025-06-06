@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pojectef;
+using pojectef.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,5 +54,30 @@ app.MapGet("/dbconexion", async ([FromServices] TareaContext dbContext) =>
         ? Results.Ok("Base de datos conectada correctamente.")
         : Results.Problem("No se pudo conectar a la base de datos.");
 });
+
+app.MapGet("/api/tareas", async ([FromServices] TareaContext dbContext) =>
+{
+    var tareas = await dbContext.Tareas
+        .Include(p => p.Categoria)
+        .Select(t => new
+        {
+            t.TareaId,
+            t.Titulo,
+            t.Descripcion,
+            t.Prioridad,
+            t.FechaCreacion,
+            t.Completada,
+            Categoria = new
+            {
+                t.Categoria.CategoriaId,
+                t.Categoria.Nombre
+            }
+        })
+        .ToListAsync();
+
+    return Results.Ok(tareas);
+});
+
+
 
 app.Run();
