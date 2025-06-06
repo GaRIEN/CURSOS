@@ -1,10 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pojectef;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar conexi�n desde appsettings.json
+// Logging detallado para debug
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+// Configurar conexión desde appsettings.json
 builder.Services.AddSqlServer<TareaContext>(builder.Configuration.GetConnectionString("TareasDb"));
 
 // Agregar servicios
@@ -25,7 +29,23 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-// Health check
+// Crear base de datos si no existe
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<TareaContext>();
+
+    try
+    {
+        dbContext.Database.EnsureCreated();
+        Console.WriteLine("✅ Base de datos verificada o creada correctamente.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Error al crear/verificar la base de datos: {ex.Message}");
+    }
+}
+
+// Health check para probar conexión
 app.MapGet("/dbconexion", async ([FromServices] TareaContext dbContext) =>
 {
     var canConnect = await dbContext.Database.CanConnectAsync();
