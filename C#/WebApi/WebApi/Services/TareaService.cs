@@ -2,8 +2,8 @@
 using webapi;
 using webapi.Models;
 
-namespace WebApi.Services
-{
+namespace webapi.Services;
+
     public class TareaService : ITareaService
     {
         TareasContext _context;
@@ -51,7 +51,7 @@ namespace WebApi.Services
             }
         }
     }
-}
+
 
 public interface ITareaService
 {
