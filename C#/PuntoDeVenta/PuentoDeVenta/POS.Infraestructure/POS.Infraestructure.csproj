@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,6 +13,15 @@
     <Folder Include="Persistences\Contexts\" />
     <Folder Include="Persistences\Interfaces\" />
     <Folder Include="Persistences\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\POS.Utilities\POS.Utilities.csproj" />
+    <ProjectReference Include="..\POST.Domain\POS.Domain.csproj" />
   </ItemGroup>
 
 </Project>
