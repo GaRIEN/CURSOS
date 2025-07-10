@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using SistemaVenta.Entity.Models;
 
-namespace SistemaVenta.Entity.Models;
-
+namespace SistemaVenta.DAL.DBContext;
 public partial class DBVENTAContext : DbContext
 {
     public DBVENTAContext()
@@ -15,11 +15,11 @@ public partial class DBVENTAContext : DbContext
     {
     }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
     public virtual DbSet<Configuracion> Configuracions { get; set; }
 
-    public virtual DbSet<DetalleVentum> DetalleVenta { get; set; }
+    public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
 
     public virtual DbSet<Menu> Menus { get; set; }
 
@@ -33,19 +33,20 @@ public partial class DBVENTAContext : DbContext
 
     public virtual DbSet<RolMenu> RolMenus { get; set; }
 
-    public virtual DbSet<TipoDocumentoVentum> TipoDocumentoVenta { get; set; }
+    public virtual DbSet<TipoDocumentoVenta> TipoDocumentoVenta { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    public virtual DbSet<Ventum> Venta { get; set; }
+    public virtual DbSet<Venta> Venta { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(local);Database=DBVENTA;Integrated Security=True;Encrypt=False");
+    {
+
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__8A3D240C0EAE7AAB");
 
@@ -81,7 +82,7 @@ public partial class DBVENTAContext : DbContext
                 .HasColumnName("valor");
         });
 
-        modelBuilder.Entity<DetalleVentum>(entity =>
+        modelBuilder.Entity<DetalleVenta>(entity =>
         {
             entity.HasKey(e => e.IdDetalleVenta).HasName("PK__DetalleV__BFE2843FE2A50C17");
 
@@ -297,7 +298,7 @@ public partial class DBVENTAContext : DbContext
                 .HasConstraintName("FK__RolMenu__idRol__3E52440B");
         });
 
-        modelBuilder.Entity<TipoDocumentoVentum>(entity =>
+        modelBuilder.Entity<TipoDocumentoVenta>(entity =>
         {
             entity.HasKey(e => e.IdTipoDocumentoVenta).HasName("PK__TipoDocu__A9D59AEED2DAE685");
 
@@ -356,7 +357,7 @@ public partial class DBVENTAContext : DbContext
                 .HasConstraintName("FK__Usuario__idRol__4316F928");
         });
 
-        modelBuilder.Entity<Ventum>(entity =>
+        modelBuilder.Entity<Venta>(entity =>
         {
             entity.HasKey(e => e.IdVenta).HasName("PK__Venta__077D561457DDB849");
 
