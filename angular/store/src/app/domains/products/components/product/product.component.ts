@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product.component.css',
 })
 export class ProductComponent {
+  // para comunicacion de padre  a hijo
   @Input({ required: true }) product!: Products;
 
   // para comunicacion de hijo  a padre
