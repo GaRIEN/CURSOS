@@ -16,6 +16,10 @@
     <ProjectReference Include="..\SistemaVenta.Entity\SistemaVenta.Entity.csproj" />
     <ProjectReference Include="..\SistemaVenta.IOC\SistemaVenta.IOC.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ventas\" />
+  </ItemGroup>
 	
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
