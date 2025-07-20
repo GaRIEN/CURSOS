@@ -4,43 +4,139 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SistemaVenta.AplicacionWeb</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/page/layout.css" rel="stylesheet" asp-append-version="true" />
-    @await RenderSectionAsync("Styles", required: false)
     @*     @section Styles {
         <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
     } *@
+    <!-- ESTILOPS DE LETRAS USADAS PARA LA PAGINA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!--boostrap 5.37-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/bootstrap/css/bootstrap-icons.css" rel="stylesheet" />
+    @await RenderSectionAsync("Styles", required: false)
 
 </head>
 <body>
-    <div class="contaider-fluid contenedor-page bg-danger">
+    <div class="contaider-fluid contenedor-page ">
         <div class="d-flex h-100">
-            <aside class="h-100">
-                <header class="h-100">
-                    <a href="#">Centro de Ventas</a>
-                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 h-100 d-flex align-items-start justify-content-start ">
-                        <ul class="d-flex flex-column align-items-start justify-content-start">
-                            <li><a href="#">comida</a></li>
-                            <li><a href="#">pan</a></li>
-                            <li><a href="#">tamal</a></li>
-                            <li><a href="#">comida</a></li>
-                        </ul>
+            <aside class=" text-white vh-100 px-1 py-3">
+                <h4 class="text-center mb-4">Centro de Ventas</h4>
 
-                    </nav>
-                </header>
+                <ul class="nav flex-column">
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-house-door-fill me-2"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <!-- Inventario -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                           data-bs-toggle="collapse"
+                           href="#submenuInventario"
+                           role="button"
+                           aria-expanded="false"
+                           aria-controls="submenuInventario">
+                            <span><i class="bi bi-box-seam me-2"></i> Inventario</span>
+                            <i class="bi bi-chevron-down rotate-icon"></i>
+                        </a>
+
+                        <div class="collapse ps-4" id="submenuInventario">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Categoría</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Productos</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--Ventas-->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                           data-bs-toggle="collapse"
+                           href="#submenuVentas"
+                           role="button"
+                           aria-expanded="false"
+                           aria-controls="submenuVentas">
+                            <span><i class="bi bi-cart-plus-fill me-2"></i> Ventas</span>
+                            <i class="bi bi-chevron-down rotate-icon"></i>
+                        </a>
+
+                        <div class="collapse ps-4" id="submenuVentas">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Nueva Venta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Total Ventas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Reportes -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                           data-bs-toggle="collapse"
+                           href="#submenuReportes"
+                           role="button"
+                           aria-expanded="false"
+                           aria-controls="submenuReportes">
+                            <span><i class="bi bi-bar-chart-fill me-2"></i> Reportes</span>
+                            <i class="bi bi-chevron-down rotate-icon"></i>
+                        </a>
+
+                        <div class="collapse ps-4" id="submenuReportes">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Reporte Ventas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- Cionfiguracion-->
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                           data-bs-toggle="collapse"
+                           href="#submenuConfiguracion"
+                           role="button"
+                           aria-expanded="false"
+                           aria-controls="submenuConfiguracion">
+                            <span><i class="bi bi-gear-fill me-2"></i> Configuracion</span>
+                            <i class="bi bi-chevron-down rotate-icon"></i>
+                        </a>
+
+                        <div class="collapse ps-4" id="submenuConfiguracion">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#">Reporte Ventas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
             </aside>
-            <div class="container-fluid bg-dark">
+
+            <div class="container-fluids p-0 w-100">
+                <div class="bg-light container-header shadow w-100">
+                    <div class="container--user d-flex justify-content-end align-items-center h-100 gap-3 me-3">
+                        <div class="user_name">Gabriel Huaman</div>
+                        <div class="rounded-circle container__img-profile bg-warning overflow-hidden" ><img class="w-100  h-100" src="https://media.istockphoto.com/id/1090878494/es/foto/retrato-de-joven-sonriente-a-hombre-guapo-en-camiseta-polo-azul-aislado-sobre-fondo-gris-de.jpg?s=612x612&w=0&k=20&c=dHFsDEJSZ1kuSO4wTDAEaGOJEF-HuToZ6Gt-E2odc6U=" /></div>
+                    </div>
+                </div>
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
             </div>
         </div>
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2025 - SistemaVenta.AplicacionWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

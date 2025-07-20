@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Bootstrap\css\fonts\" />
     <Folder Include="wwwroot\ventas\" />
   </ItemGroup>
 	
