@@ -1,0 +1,61 @@
+﻿:root {
+    --Azulprimario: #4e73df;
+    --colorSecundario: #724edf;
+    --colortercero: #4ebbdf;
+    --coorAmarilloPage: #dfba4e;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+a{
+    text-decoration:none !important;
+    color:white !important;
+}
+.rotate-icon{
+    transition:transform 0.3s ease;
+}
+.nav-link[aria-expanded="true"] .rotate-icon{
+    transform:rotate(180deg);
+}
+.centrado_todo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+.contenedor-page {
+    height: 100vh;
+}
+/* estilos para el aside*/
+aside {
+    width: 240px;
+    background-color: var(--Azulprimario);
+}
+    aside .sidebar-logo {
+        height: 60px;
+    }
+/* Para Header */
+.container-header{
+   height:60px;
+}
+    .container-header .container--user {
+        height: 150px;
+    }
+    .container-header .user_name {
+        color: var(--colorSecundario);
+    }
+    .container-header .container__img-profile {
+        height: 40px;
+        width:40px;
+    }
