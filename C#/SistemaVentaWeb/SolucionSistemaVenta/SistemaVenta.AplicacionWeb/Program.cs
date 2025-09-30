@@ -44,7 +44,7 @@ app.UseAuthorization();
 // Configuración de las rutas de los controladores
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Dashboard}/{action=Dashboard}/");
 
 // Ejecutar la aplicación
 app.Run();
