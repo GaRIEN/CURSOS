@@ -1,11 +1,88 @@
-<div class="w-full h-screen  bg-[#0b1220] py-5">
-    <div class="pb-5 w- w-full mx-auto sm:w-xl  ">
-        <h1 class="text-center text-2xl subpixel-antialiased font-semibold text-green-300">TODO APP </h1>
-        <p class="text-center text-sm text-gray-300 font-medium">este es un curos de practicas de curso Angular</p>
-        <div class="mt-3 w-[96%] mx-auto"></div>
-        <div class="flex items-center bg-[#0b1220] border border-slate-700 rounded-xl shadow-lg overflow-hidden focus-within: rinng-indigo-500 transition" >  
-            <input type="text" class="w-full  px-4 py-3 bg-transparent text-white placeholder-slate-500 focus:outline-none" placeholder="Product">
-            <button class="px-5 py-3 bg-indigo-900 text-white font-medium transition cursor-pointer">add</button> 
+<div
+    class="min-h-screen bg-gradient-to-br from-purple-700 via-fuchsia-600 to-pink-500 flex flex-col items-center py-10">
+    <h1 class="text-4xl font-extrabold text-white mb-4 drop-shadow-lg">ADMINISTRADOR DE TAREAS</h1>
+
+    <!-- Search bar -->
+    <div class="flex items-center bg-white/20 backdrop-blur-md rounded-2xl px-4 py-3 w-[90%] sm:w-[500px] shadow-lg">
+        <input type="text" placeholder="Buscar tareas..."
+            class="flex-1 bg-transparent text-white placeholder-white/70 focus:outline-none text-sm">
+        <button class="ml-2 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-xl transition">Buscar</button>
+    </div>
+
+    <!-- Botón nueva tarea -->
+    <button
+        class="mt-4 px-5 py-3 bg-pink-600 hover:bg-pink-700 text-white font-semibold rounded-xl shadow-md transition">
+        + Crear nueva tarea
+    </button>
+
+    <!-- Contenedor de tarjetas -->
+    <div class="bg-white/10 backdrop-blur-xl rounded-3xl mt-8 p-6 w-[90%] sm:w-[1000px] shadow-2xl">
+        <h2 class="text-xl font-semibold text-white mb-4">TAREAS</h2>
+
+        <!-- Grid de tareas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Tarjeta individual -->
+            <!-- <div class="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg hover:shadow-2xl transition">
+                <div class="flex justify-between items-start">
+                    <h3 class="font-bold text-gray-800 text-lg">Corregir bugs críticos</h3>
+                    <span class="bg-orange-400 text-white text-xs font-semibold px-2 py-1 rounded-full">Pendiente</span>
+                </div>
+                <p class="text-sm text-gray-700 mt-2">Identificar y corregir errores críticos en el sistema</p>
+                <p class="text-sm text-gray-600 mt-3 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-pink-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10m-5 4h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Fecha límite: 20/10/2024
+                </p>
+
+                <div class="flex justify-between mt-4">
+                    <button
+                        class="bg-purple-600 hover:bg-purple-700 text-white text-sm px-3 py-2 rounded-lg transition">Ver
+                        Detalles</button>
+                    <div class="flex gap-2">
+                        <button class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition"><i
+                                class="fa fa-check"></i></button>
+                        <button class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div> -->
+
+            @for(task of tasks(); track $index){
+            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg hover:shadow-2xl transition">
+                <div class="flex justify-between items-start">
+                    <h3 class="font-bold text-gray-800 text-lg">{{task.name}}</h3>
+                    <span class="bg-orange-400 text-white text-xs font-semibold px-2 py-1 rounded-full">{{task.status}}</span>
+                </div>
+                <p class="text-sm text-gray-700 mt-2">{{task.description}}</p>
+                <p class="text-sm text-gray-600 mt-3 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-pink-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10m-5 4h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Fecha límite: 20/10/2024
+                </p>
+
+                <div class="flex justify-between mt-4">
+                    <button
+                        class="bg-purple-600 hover:bg-purple-700 text-white text-sm px-3 py-2 rounded-lg transition">Ver
+                        Detalles</button>
+                    <div class="flex gap-2">
+                        <button class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition"><i
+                                class="fa fa-check"></i></button>
+                        <button class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            }
+
+
+            <!-- Puedes duplicar y cambiar los datos -->
         </div>
     </div>
 </div>
