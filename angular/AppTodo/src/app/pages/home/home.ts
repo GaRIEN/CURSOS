@@ -1,63 +1,67 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { Task } from './../../models/task.model';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
 export class Home {
-
-  tasks = signal([
+  private fb = inject(FormBuilder);
+  
+  // LISTA
+  tasks = signal<Task[]>([
     {
-      id:"1",
-      name: "aprender angular",
-      description: "aprender curso basico luego dominaras",
-      status: "pendiente"
+      id: '1',
+      name: 'aprender angular',
+      description: 'aprender curso basico luego dominaras',
+      status: 'pendiente',
+      fechaLimite: new Date(2025, 0, 20)
     },
     {
-      id: "2",
-      name: "aprender ingles",
-      description: "Empezar desde 0",
-      status: "proceso"
-    },
+      id: '2',
+      name: 'aprender ingles',
+      description: 'Empezar desde 0',
+      status: 'proceso',
+      fechaLimite: new Date(2025, 1, 5)
+    }
+  ]);
 
-  ])
-
-  //PARA MODAL 
+  // MODAL
   showModal = signal(false);
-  // Valores reactivos (signals)
-  newName = signal('');
-  newDescription = signal('');
-  newStatus = signal('Pendiente');
 
+  // FORMULARIO REACTIVO
+  taskForm = this.fb.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    status: ['', Validators.required]
+  });
+
+  
   saveTask() {
-    
+    if (this.taskForm.invalid) {
+      this.taskForm.markAllAsTouched(); // muestra errores
+      return;
+    }
+
     this.tasks.update(t => [
       ...t,
       {
-        id: this.generateId(),
-        name: this.newName(),
-        description: this.newDescription(),
-        status: this.newStatus()
+        id: crypto.randomUUID(),
+        ...this.taskForm.value as any,
+        fechaLimite: new Date()
       }
     ]);
-    // Reset
-    this.newName.set('');
-    this.newDescription.set('');
-    this.newStatus.set('Pendiente');
 
+    this.taskForm.reset();
     this.showModal.set(false);
-  }
-
-  generateId() {
-    return crypto.randomUUID();
   }
 
   deleteTask(id: string) {
     this.tasks.update(t => t.filter(item => item.id !== id));
   }
-
-
 }
