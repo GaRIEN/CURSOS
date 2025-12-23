@@ -1,7 +1,7 @@
 export interface Task{
     id:string;
     name:string;
-    description:String;
+    description: string;
     status:string;
     fechaLimite?:Date,
 }

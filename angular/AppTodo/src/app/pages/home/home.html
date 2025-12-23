@@ -41,10 +41,13 @@
                 <div class="flex justify-between mt-4">
                     <button
                         class="bg-purple-600 hover:bg-purple-700 text-white text-sm px-3 py-2 rounded-lg transition">Ver
-                        Detalles</button>
+                        Detalles
+                    </button>
                     <div class="flex gap-2">
                         <button class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition"><i
                                 class="fa fa-check"></i></button>
+                        <button (click)="editTask(task)" class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-full transition">
+                            <i class="fa-regular fa-pen-to-square"></i></button>
                         <button (click)="deleteTask(task.id)"
                             class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition"><i
                                 class="fa fa-trash"></i></button>
@@ -89,7 +92,7 @@
 
             <!-- BOTONES -->
             <div class="flex justify-end gap-3 mt-5">
-                <button type="button" (click)="showModal.set(false)" class="px-4 py-2 bg-gray-300 rounded-lg">
+                <button type="button" (click)="closeModal()" class="px-4 py-2 bg-gray-300 rounded-lg">
                     Cancelar
                 </button>
 

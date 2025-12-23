@@ -33,6 +33,8 @@ export class Home {
 
   // MODAL
   showModal = signal(false);
+  editingTaskId = signal<string | null>(null);
+
 
   // FORMULARIO REACTIVO
   taskForm = this.fb.group({
@@ -41,23 +43,55 @@ export class Home {
     status: ['', Validators.required]
   });
 
+  editTask(task: Task) {
+    this.editingTaskId.set(task.id);
+
+    this.taskForm.patchValue({
+      name: task.name,
+      description: task.description,
+      status: task.status
+    });
+
+    this.showModal.set(true);
+  }
+
   
   saveTask() {
     if (this.taskForm.invalid) {
-      this.taskForm.markAllAsTouched(); // muestra errores
+      this.taskForm.markAllAsTouched();
       return;
     }
 
-    this.tasks.update(t => [
-      ...t,
-      {
-        id: crypto.randomUUID(),
-        ...this.taskForm.value as any,
-        fechaLimite: new Date()
-      }
-    ]);
+    const formValue = this.taskForm.value as any;
 
+    // EDITAR
+    if (this.editingTaskId()) {
+      this.tasks.update(tasks =>
+        tasks.map(task =>
+          task.id === this.editingTaskId()
+            ? { ...task, ...formValue }
+            : task
+        )
+      );
+    }
+    // CREAR
+    else {
+      this.tasks.update(t => [
+        ...t,
+        {
+          id: crypto.randomUUID(),
+          ...formValue,
+          fechaLimite: new Date()
+        }
+      ]);
+    }
+
+    this.closeModal();
+  }
+
+  closeModal() {
     this.taskForm.reset();
+    this.editingTaskId.set(null);
     this.showModal.set(false);
   }
 
