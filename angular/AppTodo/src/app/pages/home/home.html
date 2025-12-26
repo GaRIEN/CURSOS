@@ -17,11 +17,33 @@
 
     <!-- Contenedor de tarjetas -->
     <div class="bg-white/10 backdrop-blur-xl rounded-3xl mt-8 p-6 w-[90%] sm:w-[1000px] shadow-2xl">
+        <div class="flex gap-1.5 justify-end ">
+            <button (click)="setFilter('all')" [class.bg-purple-800]="filterStatus() === 'all'"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg shadow transition">
+                ALL
+            </button>
+
+            <button (click)="setFilter('pendiente')" [class.bg-purple-800]="filterStatus() === 'pendiente'"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg shadow transition">
+                PENDIENTE
+            </button>
+
+            <button (click)="setFilter('proceso')" [class.bg-purple-800]="filterStatus() === 'proceso'"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg shadow transition">
+                PROCESO
+            </button>
+
+            <button (click)="setFilter('completado')" [class.bg-purple-800]="filterStatus() === 'completado'"
+                class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg shadow transition">
+                COMPLETADO
+            </button>
+        </div>
+
         <h2 class="text-xl font-semibold text-white mb-4">TAREAS</h2>
 
         <!-- Grid de tareas -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            @for(task of tasks(); track $index){
+            @for(task of filteredTasks(); track task.id){
             <div class="bg-white/80 backdrop-blur-md rounded-2xl p-5 shadow-lg hover:shadow-2xl transition">
                 <div class="flex justify-between items-start">
                     <h3 class="font-bold text-gray-800 text-lg">{{task.name}}</h3>
@@ -44,9 +66,14 @@
                         Detalles
                     </button>
                     <div class="flex gap-2">
-                        <button class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition"><i
+                        @if(task.status != "completado"){
+                        <button (click)="taskCompleted(task.id)"
+                            class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition"><i
                                 class="fa fa-check"></i></button>
-                        <button (click)="editTask(task)" class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-full transition">
+                        }
+
+                        <button (click)="editTask(task)"
+                            class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-full transition">
                             <i class="fa-regular fa-pen-to-square"></i></button>
                         <button (click)="deleteTask(task.id)"
                             class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition"><i

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Task } from './../../models/task.model';
@@ -12,7 +12,7 @@ import { Task } from './../../models/task.model';
 })
 export class Home {
   private fb = inject(FormBuilder);
-  
+
   // LISTA
   tasks = signal<Task[]>([
     {
@@ -54,8 +54,18 @@ export class Home {
 
     this.showModal.set(true);
   }
+  taskCompleted(id: string): void {
+    this.tasks.update(tasks =>
+      tasks.map(task =>
+        task.id === id
+          ? { ...task, status: 'completado' }
+          : task
+      )
+    );
 
-  
+  }
+
+
   saveTask() {
     if (this.taskForm.invalid) {
       this.taskForm.markAllAsTouched();
@@ -98,4 +108,26 @@ export class Home {
   deleteTask(id: string) {
     this.tasks.update(t => t.filter(item => item.id !== id));
   }
+
+  //PARA FILTROS 
+
+  // FILTRO ACTIVO
+  filterStatus = signal<'all' | 'pendiente' | 'proceso' | 'completado'>('all');
+
+  filteredTasks = computed(() => {
+    const status = this.filterStatus();
+    const tasks = this.tasks();
+
+    if (status === 'all') {
+      return tasks;
+    }
+
+    return tasks.filter(task => task.status === status);
+  });
+
+  setFilter(status: 'all' | 'pendiente' | 'proceso' | 'completado'): void {
+    this.filterStatus.set(status);
+  }
+
+
 }
