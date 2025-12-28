@@ -1,7 +1,9 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Task } from './../../models/task.model';
+import { TaskStorageService } from '../../services/task-storage.service';
+
 
 @Component({
   selector: 'app-home',
@@ -12,24 +14,17 @@ import { Task } from './../../models/task.model';
 })
 export class Home {
   private fb = inject(FormBuilder);
+  private storage = inject(TaskStorageService);
+  constructor() {
+    effect(() => {
+      const tasks = this.tasks();
+      this.storage.save(tasks);
+    });
+  }
+
 
   // LISTA
-  tasks = signal<Task[]>([
-    {
-      id: '1',
-      name: 'aprender angular',
-      description: 'aprender curso basico luego dominaras',
-      status: 'pendiente',
-      fechaLimite: new Date(2025, 0, 20)
-    },
-    {
-      id: '2',
-      name: 'aprender ingles',
-      description: 'Empezar desde 0',
-      status: 'proceso',
-      fechaLimite: new Date(2025, 1, 5)
-    }
-  ]);
+  tasks = signal<Task[]>(this.storage.load());
 
   // MODAL
   showModal = signal(false);

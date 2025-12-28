@@ -3,5 +3,5 @@ export interface Task{
     name:string;
     description: string;
     status:string;
-    fechaLimite?:Date,
+    fechaLimite:Date,
 }
