@@ -9,8 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './about.css',
 })
 export class About {
-  duration = signal(1500)
-  message = signal("Hola mundo")
+  duration = signal(1500);
+  message = signal("Hola mundo");
+  counter = signal(0);
 
   changeDuration(duration: number){
     this.duration.set(duration)
