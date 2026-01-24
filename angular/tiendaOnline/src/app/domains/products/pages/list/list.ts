@@ -9,5 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './list.css',
 })
 export class List {
-
+  //recibe 
+  onAddToCart(Event:string){
+    console.log("padre y este es el titulo", Event)
+  }
 }

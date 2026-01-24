@@ -1,5 +1,5 @@
-<div class="grid grid-cols-3">
-    <app-product imagen="https://picsum.photos/640/640?r=1" title="Producto 1" [price]="1452.00"></app-product>
-    <app-product imagen="https://picsum.photos/640/640?r=2" title="Producto 2" [price]="2500.00"></app-product>
-    <app-product imagen="https://picsum.photos/640/640?r=8" title="Producto 18" [price]="3254.00"></app-product>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 p-2">
+    <app-product imagen="https://picsum.photos/640/640?r=1" title="Producto 1" [price]="1452.00" (addToCart)="onAddToCart($event)"></app-product>
+    <app-product imagen="https://picsum.photos/640/640?r=2" title="Producto 2" [price]="2500.00" (addToCart)="onAddToCart($event)"></app-product>
+    <app-product imagen="https://picsum.photos/640/640?r=8" title="Producto 18" [price]="3254.00" (addToCart)="onAddToCart($event)"> </app-product>
 </div>
