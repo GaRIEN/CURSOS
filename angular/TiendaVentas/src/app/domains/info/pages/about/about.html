@@ -2,7 +2,14 @@
 <p><input type="text" [value]="message()" (input)="changeMessage($event.target.value)"></p>
 
 @if( duration() >= 1 ){
-<p>
+<div class="px-10">
+    <h1>About Us</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui iste quaerat nam omnis sit enim fugit repellat a
+        quod, illo, veniam mollitia ex? Eum natus culpa temporibus nisi mollitia. Quam.</p>
     <app-counter [duration]="duration()" [message]="message()"></app-counter>
-</p>
+    <div class="">
+        <app-wave-audio url="assets/audios/music.mp3" class="bg-amber-50"> </app-wave-audio>
+    </div>
+</div>
 }
+

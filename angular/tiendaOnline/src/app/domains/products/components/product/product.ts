@@ -14,7 +14,7 @@ export class Product {
   //OUPTUS 
   //creamos unasalida o comunicacion de hijo a padre con el nombre addtoCart
   @Output() addToCart = new EventEmitter();
-
+  //funcion que enviara
   addToCartHandler() {
     console.log("Click en la funcion  ")
     this.addToCart.emit("Hola este mensaje viene del hijo"+ this.title)
