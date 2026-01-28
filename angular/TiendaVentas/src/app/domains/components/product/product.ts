@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { product } from '../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,8 +9,14 @@ import { Component, Input } from '@angular/core';
 })
 export class Product {
   //comunicacion del padre al hijo
-  @Input({ required: true }) imagen: string = "";
-  @Input({ required: true }) price: number = 0;
-  @Input({ required: true }) title: string = "";
+  @Input({ required: true }) product!: product ;
+  //COMUNICACION HIJO A PADRE
+  @Output() addtoCard = new EventEmitter();
+ 
+  //mi funcion que enviara 
+  addToCardHandler(){
+    console.log ("click en la funcion de envio")
+    this.addtoCard.emit("mensaje enviado desde el hijo" + this.product.title);
+  }
 
 }

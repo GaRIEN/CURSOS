@@ -1,3 +1,7 @@
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 p-2">
-    <app-product imagen="https://picsum.photos/640/640?r=1" title="Producto 1" [price]="1452.00" >   </app-product>
+    @for (product of products(); track product.id) {
+    <app-product [product]="product" (addtoCard)="onAddtoCard($event)">
+    
+    </app-product>
+        }
 </div>
